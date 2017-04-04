@@ -1,4 +1,4 @@
-package basic;
+package ds;
 
 public class BinaryTreeNode {
 	

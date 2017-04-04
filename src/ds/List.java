@@ -1,4 +1,4 @@
-package basic;
+package ds;
 
 public interface List {
     public void add(Object o);
