@@ -45,10 +45,7 @@ public class ArrayList implements List {
     }
 
     public Object get(int index) {
-        if (index > -1 && index < size) {
-            return elementData[index];
-        }
-        return null;
+        return (index > -1 && index < size) ? true : null;
     }
 
     public Object remove(int index) {
