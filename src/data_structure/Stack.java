@@ -1,4 +1,4 @@
-package ds;
+package data_structure;
 
 public class Stack {
 	private ArrayList elementData = new ArrayList();

@@ -1,4 +1,4 @@
-package ds;
+package data_structure;
 
 public class ArrayList implements List {
 
@@ -27,42 +27,32 @@ public class ArrayList implements List {
         }
     }
 
-    public void add(Object o) {
-        if (size > elementData.length / 5 * 4) {
-            expandCapacity();
-        }
-        elementData[size] = o;
-        size++;
-    }
-
-    public void add(int index, Object o) {
-        if (size > elementData.length / 5 * 4) {
-            expandCapacity();
-        }
-        moveBackward(index);
-        elementData[index] = o;
-        size++;
-    }
-
-    public Object get(int index) {
-        if (index > -1 && index < size) {
-            return elementData[index];
-        }
-        return null;
-    }
-
-    public Object remove(int index) {
-        Object o = get(index);
-        moveForward(index);
-        return o;
-    }
-
-    public int size() {
-        return size;
-    }
-
     public Iterator iterator() {
         return null;
     }
 
+    @Override
+    public void add(Object o) {
+
+    }
+
+    @Override
+    public void add(int index, Object o) {
+
+    }
+
+    @Override
+    public Object get(int index) {
+        return null;
+    }
+
+    @Override
+    public Object remove(int index) {
+        return null;
+    }
+
+    @Override
+    public int size() {
+        return 0;
+    }
 }

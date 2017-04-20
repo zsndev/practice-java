@@ -1,4 +1,4 @@
-package ds;
+package data_structure;
 
 public class LinkedList implements List, Iterator {
 

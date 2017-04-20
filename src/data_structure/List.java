@@ -1,4 +1,4 @@
-package ds;
+package data_structure;
 
 public interface List {
     public void add(Object o);
