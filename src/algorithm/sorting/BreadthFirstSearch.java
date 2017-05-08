@@ -58,29 +58,33 @@ public class BreadthFirstSearch {
         bookMap[0][0] = 1;
         // ==时，说明已经无路可走了
         while (qHead < qTail) {
+            int nowX = queue[qHead].x;
+            int nowY = queue[qHead].y;
+            if (nowX == dest[0] && nowY == dest[1]) {
+                Node node = queue[qHead];
+                while (node.parent > -1) {
+                    System.out.println(node);
+                    node = queue[node.parent];
+                }
+                System.out.println(node);
+                System.out.println("=================");
+                qHead++;
+                continue;
+            }
             for (int i = 0; i < directs.length; i++) {
                 int[] direction = directs[i];
-                int nextX = queue[qHead].x + direction[0];
-                int nextY = queue[qHead].y + direction[1];
+                int nextX = nowX + direction[0];
+                int nextY = nowY + direction[1];
                 if (nextX < 0 || nextX > 4 || nextY < 0 || nextY > 3) {
                     continue;
                 }
                 if (map[nextX][nextY] == 0 && bookMap[nextX][nextY] == 0) {
-                    bookMap[nextX][nextY] = 1;
+                    if (nextX != dest[0] && nextY != dest[1]) {
+                        bookMap[nextX][nextY] = 1;
+                    }
                     Node node = new Node(nextX, nextY, queue[qHead].step + 1, qHead, qTail);
                     queue[qTail] = node;
                     qTail++;
-                }
-                if (nextX == dest[0] && nextY == dest[1]) {
-                    bookMap[nextX][nextY] = 0;
-                    Node node = queue[qTail - 1];
-                    while (node.parent > -1) {
-                        System.out.println(node);
-                        node = queue[node.parent];
-                    }
-                    System.out.println(node);
-                    System.out.println("=================");
-                    break;
                 }
             }
             qHead++;
